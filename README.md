@@ -1,7 +1,7 @@
 ## Learning@home
 ![img](./scheme.png)
 
-Supplementary code for arXiv submission "Learning@home: Crowdsourced Training of Large Neural Networks with Decentralized Mixture-of-Experts".
+Supplementary code for arXiv submission ["Learning@home: Crowdsourced Training of Large Neural Networks with Decentralized Mixture-of-Experts"](https://arxiv.org/abs/2002.04013).
 
 __TL;DR:__ Learning@home is an approach for training large (up to multi-terabyte) neural networks on hardware provided by volunteers with unreliable and slow connection.
 
