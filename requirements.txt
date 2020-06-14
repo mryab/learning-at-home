@@ -4,3 +4,4 @@ numpy
 requests
 tqdm
 kademlia
+prefetch_generator
