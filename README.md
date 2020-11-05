@@ -1,11 +1,11 @@
-## Learning@home
+## Learning@home: Towards Crowdsourced Training of Large Neural Networks using Decentralized Mixture-of-Experts
 ![img](./scheme.png)
 
-Supplementary code for arXiv submission ["Learning@home: Crowdsourced Training of Large Neural Networks with Decentralized Mixture-of-Experts"](https://arxiv.org/abs/2002.04013).
+PyTorch original implementation of ["Towards Crowdsourced Training of Large Neural Networks using Decentralized Mixture-of-Experts"](https://arxiv.org/abs/2002.04013) (NeurIPS 2020).
 
 __TL;DR:__ Learning@home is an approach for training large (up to multi-terabyte) neural networks on hardware provided by volunteers with unreliable and slow connection.
 
-__This repository__ contains a snapshot of Learning@home that was used to conduct initial experiments. While this snapshot implements the main functionality of Learning@home, it should be treated as a testbed to reproduce our experiments, __not__ as a finished library (see limitations below). If the paper is accepted, we will release a newer version of the code suitable for large-scale training.
+__This repository__ contains a snapshot of Learning@home that was used to conduct initial experiments. While this snapshot implements the main functionality of Learning@home, it should be treated as a testbed to reproduce our experiments, __not__ as a finished library (see limitations below). To see an updated implementation designed for practical use, please refer to the [hivemind](https://github.com/learning-at-home/hivemind) project.  
 
 
 ## What do I need to run it?
@@ -17,7 +17,7 @@ __This repository__ contains a snapshot of Learning@home that was used to conduc
 
 ## How do I run it?
 1. Clone or download this repo. `cd` to its root directory.
-2. Grab or build a working python enviromnent. [Anaconda](https://www.anaconda.com/) works fine.
+2. Create a working python enviromnent. [Anaconda](https://www.anaconda.com/) works fine.
 3. Install packages from `requirements.txt`
 4. Follow the instructions in the next section
 
@@ -129,9 +129,23 @@ __DHT:__
    * __`TesseractNetwork`__(`lib/network/__init__.py`) is a node of Kademlia-based DHT that stores metadata used by trainer and runtime.
 
 ## Limitations
-As stated above, this implementation is a testbed for experiments, not the final learning@home library. More specifically:
+As stated above, this implementation is a testbed for experiments, not a feature-complete library. More specifically:
 
 * After finding best experts across DHT, a client still connects to these experts via hostname/port. Updated version connects to experts via DHT, allowing users to host servers with no public hostname or under NAT.
 * Runtime processes do not handle errors. In the updated version, any errors on server are reported to the client.
-* Runtime processes report basic rudimentary logs. Updated version reports multiple health indicators through Tensorboard.
 * This implementation uses basic Kademlia protocol. Updated version modifies Kademlia to speed up searching for alive experts.
+
+An updated version of the library is available at https://github.com/learning-at-home/hivemind.
+
+## References
+[Towards Crowdsourced Training of Large Neural Networks using Decentralized Mixture-of-Experts](https://arxiv.org/abs/2002.04013) (Max Ryabinin and Anton Gusev, NeurIPS 2020).
+```
+@misc{ryabinin2020crowdsourced,
+      title={Towards Crowdsourced Training of Large Neural Networks using Decentralized Mixture-of-Experts}, 
+      author={Max Ryabinin and Anton Gusev},
+      year={2020},
+      eprint={2002.04013},
+      archivePrefix={arXiv},
+      primaryClass={cs.DC}
+}
+```
